@@ -1,0 +1,63 @@
+﻿<Window x:Class="Практическая_работа__14.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Практическая_работа__14"
+        mc:Ignorable="d"
+        Title="SettingsWindow" Height="150" Width="200" WindowStyle="None" Activated="Window_Activated" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Height="25" Width="40" Grid.Row="0" Grid.Column="1">
+            <TextBox x:Name="tbNumCol"/>
+        </Border>
+        <Label Content="Кол-во строк:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+
+        <Border Height="25" Width="40" Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="tbNumRow"/>
+        </Border>
+        <Label Content="Кол-во столбцов:" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+
+        <Border Grid.Row="2" Grid.Column="0" Margin="5,15">
+            <Button Content="Сохранить размер" Click="SaveSettingsTable_Click" ToolTip="Создать пустую таблицу указанного размера"/>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="1" Margin="15,15">
+            <Button Content="Закрыть" Click="CloseWindowSettingsWindow_Click" ToolTip="Заполнить созданную таблицу значениями из указанного диапозона"/>
+        </Border>
+    </Grid>
+</Window>
